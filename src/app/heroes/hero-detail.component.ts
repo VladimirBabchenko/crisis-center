@@ -9,7 +9,10 @@ import { slideInDownAnimation } from '../animations';
 import { HeroService, Hero } from './hero.service';
 
 @Component({
-    templateUrl: './hero-detail.component.html'
+    templateUrl: './hero-detail.component.html',
+    animations: [
+        slideInDownAnimation
+    ]
 })
 export class HeroDetailComponent implements OnInit {
     @HostBinding('@routeAnimation') routeAnimation = true;

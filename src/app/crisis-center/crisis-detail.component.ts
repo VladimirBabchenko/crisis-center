@@ -24,12 +24,17 @@ export class CrisisDetailComponent implements OnInit {
     editName: string;
 
     constructor(
+        private router: Router,
         private route: ActivatedRoute,
         private crisisService: CrisisService
     ) { }
 
-    ngOnInit() { 
+    ngOnInit() {
         this.getCrisis();
+    }
+
+    cancel() {
+        this.goToCrises();
     }
 
     getCrisis() {
@@ -38,5 +43,9 @@ export class CrisisDetailComponent implements OnInit {
                 return this.crisisService.getCrisis(params.get('id'))
             })
         )
+    }
+
+    goToCrises() {
+        this.router.navigate(['../', { foo: 'foo' }], { relativeTo: this.route });
     }
 }
