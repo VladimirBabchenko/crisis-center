@@ -7,6 +7,8 @@ import { Routes, RouterModule, Router } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { ComposeMessageComponent } from './compose-message.component';
+
 
 import { CrisisCenterModule } from './crisis-center/crisis-center.module';
 import { HeroesModule } from './heroes/heroes.module';
@@ -15,7 +17,8 @@ import { AppRoutingModule } from './app-routing.module';
 @NgModule({
   declarations: [
     AppComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ComposeMessageComponent
   ],
   imports: [
     BrowserModule,

@@ -26,7 +26,8 @@ const crisisCenterRoutes: Routes = [
                 ]
             }
         ]
-    }
+    },
+    
 ]
 
 @NgModule({
