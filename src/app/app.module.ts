@@ -9,10 +9,12 @@ import { AppComponent } from './app.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ComposeMessageComponent } from './compose-message.component';
 
-
+import { AdminModule } from './admin/admin.module';
 import { CrisisCenterModule } from './crisis-center/crisis-center.module';
 import { HeroesModule } from './heroes/heroes.module';
 import { AppRoutingModule } from './app-routing.module';
+
+import { DialogService } from './dialog.service';
 
 @NgModule({
   declarations: [
@@ -26,9 +28,12 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserAnimationsModule,
     CrisisCenterModule,
     HeroesModule,
+    AdminModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    DialogService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

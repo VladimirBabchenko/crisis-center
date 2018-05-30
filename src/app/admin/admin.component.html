@@ -1,0 +1,13 @@
+<nav>
+    <a routerLink="./" routerLinkActive="active" 
+        [routerLinkActiveOptions]="{exact: true}">
+        Dashboard
+    </a>
+    <a routerLink="./crises" routerLinkActive="active">
+        Manage Crises
+    </a>
+    <a routerLink="./heroes" routerLinkActive="active">
+        Manage heroes
+    </a>
+</nav>
+<router-outlet></router-outlet>
