@@ -11,6 +11,7 @@ import { switchMap } from 'rxjs/operators';
 })
 export class CrisisListComponent implements OnInit {
     crises$: Observable<Crisis[]>;
+    selectedId: number;
 
     constructor(
         private route: ActivatedRoute,
@@ -24,6 +25,7 @@ export class CrisisListComponent implements OnInit {
     getCrises() {
         this.crises$ = this.route.paramMap.pipe(
             switchMap((params: ParamMap) => {
+                this.selectedId = +params.get('id');
                 return this.crisisService.getCrises()
             })
         )

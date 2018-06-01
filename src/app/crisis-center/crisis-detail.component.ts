@@ -20,7 +20,7 @@ export class CrisisDetailComponent implements OnInit {
     @HostBinding('style.display') display = 'block';
     @HostBinding('style.position') position = 'absolute';
 
-    crisis$: Observable<Crisis>;
+    crisis: Crisis;
     editName: string;
 
     constructor(
@@ -37,12 +37,25 @@ export class CrisisDetailComponent implements OnInit {
         this.goToCrises();
     }
 
+    save() {
+        this.crisis.name = this.editName;
+        this.goToCrises();
+    }
+
     getCrisis() {
-        this.crisis$ = this.route.paramMap.pipe(
-            switchMap((params: ParamMap) => {
-                return this.crisisService.getCrisis(params.get('id'))
+        // this.crisis$ = this.route.paramMap.pipe(
+        //     switchMap((params: ParamMap) => {
+        //         return this.crisisService.getCrisis(params.get('id'))
+        //     })
+        // )
+        // let id = +this.route.snapshot.paramMap.get('id');
+        this.route.data.
+            subscribe((data: {crisis: Crisis}) => {
+                this.editName = data.crisis.name;
+                this.crisis = data.crisis;
             })
-        )
+        // this.crisisService.getCrisis(id).
+        //     subscribe(crisis => this.crisis === crisis)
     }
 
     goToCrises() {

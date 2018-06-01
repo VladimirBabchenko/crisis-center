@@ -18,10 +18,10 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class CrisisService {
-    // crises$: Observable<Crisis[]>;
+    private crises$: BehaviorSubject<Crisis[]> = new BehaviorSubject<Crisis[]>(Crises);
 
-    getCrises(): Observable<Crisis[]> {
-        return of(Crises)
+    getCrises() {
+        return this.crises$;
     }
 
     getCrisis(id: number | string): Observable<Crisis> {
